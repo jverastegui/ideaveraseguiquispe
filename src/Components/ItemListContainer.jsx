@@ -1,35 +1,42 @@
-import React from "react";
-import ItemCount from './ItemCount';
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList";
 
-const callback=(count)=>{
-  console.log(count);
-}
 
-function ItemListContainer(props) {
- 
+function ItemListContainer() {
+
+
+  const ListaProducto = [
+    { id: 1, nombre: 'Tv LG', image: 'https://www.lg.com/cl/images/televisores/md05273581/gallery/medium01.jpg', Descripcion: 'Tv LG 50 pulgadas', precio: '2000', stock: 10 },
+    { id: 2, nombre: 'Refrigeradora', image: 'https://images.samsung.com/is/image/samsung/pe-ref-sbs-rs5300-rs27t5561b1-pe-frontjetblack-203517028?$650_519_PNG$', Descripcion: 'Refrigeradora Sansumg', precio: '1500', stock: 3 },
+    { id: 3, nombre: 'Lavadora', image: 'https://oechsle.vteximg.com.br/arquivos/ids/1709424-1500-1500/1649755.jpg?v=637494974113530000', Descripcion: 'Lavadora LG', precio: '1700', stock: 0 },
+    { id: 4, nombre: 'Licuadora', image: 'https://home.ripley.com.pe/Attachment/WOP_5/2019253949309/2019253949309_2.jpg', Descripcion: 'Licuadora LG', precio: '300', stock: 5 },
+    { id: 5, nombre: 'Play Station', image: 'https://cloudfront-us-east-1.images.arcpublishing.com/elcomercio/XPGZRX7LKJAL7LNLFOWMTZ7KEU.jpg', Descripcion: 'Play Station 5', precio: '2500', stock: 20 }
+  ];
+
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    const promesa = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(ListaProducto);
+      }, 2000);
+    });
+
+    promesa.then((result) => {
+      setItems(result);
+      console.log(result);
+    })
+
+
+  }, [ListaProducto]);
+
+
   return (
-    <table className="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Descripcion</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Stock</th>
-        <th scope="col">Cantidad</th>
-      </tr>
-    </thead>
-    <tbody>
-      {
-        props.obj.map(item=>{
-          return <tr key={item.id}>
-            <td>{item.Descripcion}</td>
-            <td>S/. {item.precio}</td>
-            <td>{item.stock}</td>
-            <td>  <ItemCount stock={item.stock} initial={0} onAdd={callback}  ></ItemCount></td>
-          </tr>
-        })
-      }
-    </tbody>
-   </table>
+    <div className="row">
+      <div className="col-md-12">
+        <ItemList lst={items}></ItemList>
+      </div>
+    </div>
+
   );
 }
 
