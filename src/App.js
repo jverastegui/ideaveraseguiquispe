@@ -1,16 +1,15 @@
-
-
-import NavBar from './NavBar';
-import ItemListContainer from './ItemListContainer';
+import NavBar from './Components/NavBar';
+import ItemListContainer from './Components/ItemListContainer';
 
 
 const ListaProducto = [
-  { id: 1, Descripcion: 'Tv LG 50 pulgadas', precio: '2000' },
-  { id: 2, Descripcion: 'Refrigeradora Sansumg', precio: '1500' },
-  { id: 3, Descripcion: 'Lavadora LG', precio: '1700' },
-  { id: 4, Descripcion: 'Licuadora LG', precio: '300' },
-  { id: 5, Descripcion: 'Play Station 5', precio: '2500' }
+  { id: 1, Descripcion: 'Tv LG 50 pulgadas', precio: '2000',stock: 10},
+  { id: 2, Descripcion: 'Refrigeradora Sansumg', precio: '1500' ,stock: 3},
+  { id: 3, Descripcion: 'Lavadora LG', precio: '1700',stock:0 },
+  { id: 4, Descripcion: 'Licuadora LG', precio: '300',stock:5 },
+  { id: 5, Descripcion: 'Play Station 5', precio: '2500',stock:20 }
 ];
+
 
 
 function App() {
@@ -25,6 +24,7 @@ function App() {
             <ItemListContainer obj={ListaProducto} />
           </div>
         </div>
+      
       </div>
 
 
