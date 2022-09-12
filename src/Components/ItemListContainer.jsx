@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { products } from "../mock/products";
 import ItemList from "./ItemList";
 
@@ -7,6 +8,7 @@ function ItemListContainer() {
 
 
   const ListaProducto = products;
+  const {id} = useParams();
 
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -17,19 +19,23 @@ function ItemListContainer() {
     }); 
  
     promesa.then((result) => {
-      setItems(result);
-      console.log(result);
+      let arr_filter=result;
+      if(id!='' && id!=null){
+        arr_filter=result.filter(x=> x.categoria.id==parseInt(id));
+      }
+     
+      setItems(arr_filter);
     })
 
 
-  }, [ListaProducto]);
+  }, [ListaProducto, id]);
 
 
   return (
-    <div className="row">
-      <div className="col-md-12">
+    <div className="container">
+      
         <ItemList lst={items}></ItemList>
-      </div>
+     
     </div>
 
   );
