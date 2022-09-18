@@ -20,10 +20,9 @@ function ItemListContainer() {
  
     promesa.then((result) => {
       let arr_filter=result;
-      if(id!='' && id!=null){
-        arr_filter=result.filter(x=> x.categoria.id==parseInt(id));
+      if(id!=='' && id!==null && parseInt(id)>0){
+        arr_filter=result.filter(x=> x.categoria.id===parseInt(id));
       }
-     
       setItems(arr_filter);
     })
 

@@ -14,16 +14,16 @@ function NavBar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
             <li className="nav-item">
-              <Link className="nav-link" aria-current='page' to={'/'}>Inicio</Link>
+              <Link className="nav-link"  to={'/'}>Inicio</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'/Categoria/1'}>ElectroDomestico</Link>
+              <Link className="nav-link" to={'/category/1'}>ElectroDomestico</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'/Categoria/2'}>Hombre</Link>
+              <Link className="nav-link" to={'/category/2'}>Hombre</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'/Categoria/3'}>Mujer</Link>
+              <Link className="nav-link" to={'/category/3'}>Mujer</Link>
             </li>
           </ul>
           <form className="d-flex" >
