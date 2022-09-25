@@ -8,7 +8,7 @@ const Item = (obj) => {
                 <div className="card-header">
                     <p className="card-title" style={{ fontWeight: 'bold' }}>{obj.Item.nombre}</p>
                 </div>
-                <Link to={'item/' + obj.Item.id}> <img src={obj.Item.image} className="card-img-top" alt="Imagen" /></Link>
+                <Link to={'/item/' + obj.Item.id}> <img src={obj.Item.image} className="card-img-top" alt="Imagen" /></Link>
                 <div className="card-body">
                     <p className="card-text">{obj.Item.Descripcion}</p>
                     <p className="card-title" style={{ fontWeight: 'bold' }}>Precio: S/. {obj.Item.precio}</p>
