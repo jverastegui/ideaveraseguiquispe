@@ -17,13 +17,13 @@ function NavBar() {
               <Link className="nav-link"  to={'/'}>Inicio</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'/category/1'}>ElectroDomestico</Link>
+              <Link className="nav-link" to={'/category/BtFG4z4AIUKjYM8CJ1Hy'}>ElectroDomestico</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'/category/2'}>Hombre</Link>
+              <Link className="nav-link" to={'/category/afyt3xHf9vjkc1q7yCUb'}>Hombre</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'/category/3'}>Mujer</Link>
+              <Link className="nav-link" to={'/category/ttMPZfqLFYOMp2u9syFK'}>Mujer</Link>
             </li>
           </ul>
           <form className="d-flex" >

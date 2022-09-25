@@ -1,28 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../mock/products.jsx";
 import ItemDetail from "./ItemDetail";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
     const {id} = useParams();
 
     useEffect(() => {
-        const getProduct = () =>
-            new Promise((res, rej) => {
-                const product = products.find((prod) => prod.id === parseInt(id));
-                setTimeout(() => {
-                    res(product);
-                }, 500);
-            });
 
-        getProduct()
-            .then((info) => {
-                setItem(info);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        const db = getFirestore();
+        const response = doc(db, "Producto", id);
+        getDoc(response).then((snapShot) => {
+            if (snapShot.exists()) {
+                setItem({id:snapShot.id, ...snapShot.data()});
+            }            
+        });
     }, [id]);
 
     return (
